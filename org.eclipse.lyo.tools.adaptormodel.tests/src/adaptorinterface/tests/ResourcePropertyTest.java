@@ -4,9 +4,6 @@ package adaptorinterface.tests;
 
 import adaptorinterface.AdaptorinterfaceFactory;
 import adaptorinterface.ResourceProperty;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,75 +12,58 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourcePropertyTest extends TestCase {
+public class ResourcePropertyTest extends ShapePropertyTest {
 
 	/**
-	 * The fixture for this Resource Property test case.
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceProperty fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public static void main(String[] args) {
-		TestRunner.run(ResourcePropertyTest.class);
-	}
+        TestRunner.run(ResourcePropertyTest.class);
+    }
 
 	/**
-	 * Constructs a new Resource Property test case with the given name.
-	 * <!-- begin-user-doc -->
+     * Constructs a new Resource Property test case with the given name.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ResourcePropertyTest(String name) {
-		super(name);
-	}
+        super(name);
+    }
 
 	/**
-	 * Sets the fixture for this Resource Property test case.
-	 * <!-- begin-user-doc -->
+     * Returns the fixture for this Resource Property test case.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(ResourceProperty fixture) {
-		this.fixture = fixture;
-	}
+     * @generated
+     */
+	@Override
+    protected ResourceProperty getFixture() {
+        return (ResourceProperty)fixture;
+    }
 
 	/**
-	 * Returns the fixture for this Resource Property test case.
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceProperty getFixture() {
-		return fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptorinterfaceFactory.eINSTANCE.createResourceProperty());
-	}
+        setFixture(AdaptorinterfaceFactory.eINSTANCE.createResourceProperty());
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
 	@Override
 	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+        setFixture(null);
+    }
 
 } //ResourcePropertyTest

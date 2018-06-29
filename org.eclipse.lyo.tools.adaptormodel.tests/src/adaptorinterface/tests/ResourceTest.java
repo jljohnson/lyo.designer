@@ -4,9 +4,6 @@ package adaptorinterface.tests;
 
 import adaptorinterface.AdaptorinterfaceFactory;
 import adaptorinterface.Resource;
-
-import junit.framework.TestCase;
-
 import junit.textui.TestRunner;
 
 /**
@@ -15,75 +12,58 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceTest extends TestCase {
+public class ResourceTest extends ShapeTest {
 
 	/**
-	 * The fixture for this Resource test case.
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Resource fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public static void main(String[] args) {
-		TestRunner.run(ResourceTest.class);
-	}
+        TestRunner.run(ResourceTest.class);
+    }
 
 	/**
-	 * Constructs a new Resource test case with the given name.
-	 * <!-- begin-user-doc -->
+     * Constructs a new Resource test case with the given name.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ResourceTest(String name) {
-		super(name);
-	}
+        super(name);
+    }
 
 	/**
-	 * Sets the fixture for this Resource test case.
-	 * <!-- begin-user-doc -->
+     * Returns the fixture for this Resource test case.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void setFixture(Resource fixture) {
-		this.fixture = fixture;
-	}
+     * @generated
+     */
+	@Override
+    protected Resource getFixture() {
+        return (Resource)fixture;
+    }
 
 	/**
-	 * Returns the fixture for this Resource test case.
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected Resource getFixture() {
-		return fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
+     * @see junit.framework.TestCase#setUp()
+     * @generated
+     */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(AdaptorinterfaceFactory.eINSTANCE.createResource());
-	}
+        setFixture(AdaptorinterfaceFactory.eINSTANCE.createResource());
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
+     * @see junit.framework.TestCase#tearDown()
+     * @generated
+     */
 	@Override
 	protected void tearDown() throws Exception {
-		setFixture(null);
-	}
+        setFixture(null);
+    }
 
 } //ResourceTest

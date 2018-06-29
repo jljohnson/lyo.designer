@@ -36,7 +36,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="Specification.DomainSpecification" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DeleteDomainSpecification']" labelDirectEdit="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DirectEditName']" createElements="false" semanticElements="[Set{self, self.generationSetting}/]" domainClass="adaptorinterface.DomainSpecification" dropDescriptions="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveResource'] //@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveProperty']">
+        <containerMappings name="Specification.DomainSpecification" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DeleteDomainSpecification']" labelDirectEdit="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DirectEditName']" createElements="false" semanticElements="[Set{self, self.generationSetting}/]" domainClass="adaptorinterface.DomainSpecification" dropDescriptions="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveResource'] //@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveProperty'] //@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveShaclProperty']">
           <subContainerMappings name="Specification.DomainSpecification.Resource" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DeleteResource']" semanticCandidatesExpression="feature:eAllContents" domainClass="adaptorinterface.Resource" dropDescriptions="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.RelatePropertyToResource']" childrenPresentation="List">
             <subNodeMappings name="Specification.DomainSpecification.Resource.LiteralProperty" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DeleteResourceLiteralPropertySubnode']" semanticCandidatesExpression="[self.propertiesAsSubnodes()/]" domainClass="adaptorinterface.ResourceProperty">
               <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="[self.labelAsResourceSubnode(view)/]" labelAlignment="LEFT" resizeKind="NSEW">
@@ -1085,6 +1085,262 @@
           </ownedTools>
         </toolSections>
       </additionalLayers>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="ShaclSpecificationDiagram" initialisation="true" domainClass="adaptorinterface.Specification" rootExpression="[if (self.eClass().name = 'Toolchain') then self.eGet('specification').oclAsType(Specification) else self endif/]" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <edgeMappings name="Specification.ShaclShapeToReferenceShaclProperty" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specificatio.DeleteShaclShapeToReferenceShaclProperty']" semanticElements="[self.shaclProperties->select(p : ShaclProperty | Sequence{ResourcePropertyValueType::Resource}->includes(p.dataType))->select(p : ShaclProperty | p.class->includes(view.targetNode.oclAsType(DNodeList).target.oclAsType(ShaclShape)))/]" sourceMapping="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclShape']" targetMapping="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclShape']" targetFinderExpression="[self.shaclProperties->select(p : ShaclProperty | Sequence{ResourcePropertyValueType::Resource}->includes(p.dataType)).class /]">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription labelSize="9" showIcon="false" labelExpression="[view.semanticElements.oclAsType(ShaclProperty).name/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription labelSize="9" showIcon="false" labelExpression="[ '[' + view.semanticElements.oclAsType(ShaclProperty).minCount +'...'+ view.semanticElements.oclAsType(ShaclProperty).maxCount->collect(maxC : Integer | if(maxC &lt;0) then '*' else maxC endif) + ']'/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Specification.ShaclShapeToLocalReferenceShaclProperty" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specificatio.DeleteShaclShapeToReferenceShaclProperty']" semanticElements="[self.shaclProperties->select(p : ShaclProperty | Sequence{ResourcePropertyValueType::LocalResource}->includes(p.dataType))->select(p : ShaclProperty | p.class->includes(view.targetNode.oclAsType(DNodeList).target.oclAsType(ShaclShape)))/]" sourceMapping="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclShape']" targetMapping="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclShape']" targetFinderExpression="[self.shaclProperties->select(p : ShaclProperty | Sequence{ResourcePropertyValueType::LocalResource}->includes(p.dataType)).class /]">
+          <style lineStyle="dot" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="[view.semanticElements.oclAsType(ShaclProperty).name/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription showIcon="false" labelExpression="[ '[' + view.semanticElements.oclAsType(ShaclProperty).minCount +'...'+ view.semanticElements.oclAsType(ShaclProperty).maxCount->collect(maxC : Integer | if(maxC &lt;0) then '*' else maxC endif) + ']'/]">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Specification.DomainSpecification.Shacl" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DeleteDomainSpecification']" labelDirectEdit="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DirectEditName']" createElements="false" semanticElements="[Set{self, self.generationSetting}/]" domainClass="adaptorinterface.DomainSpecification" dropDescriptions="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveResource'] //@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveProperty'] //@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveShaclProperty']">
+          <subContainerMappings name="Specification.DomainSpecification.ShaclShape" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DeleteShaclShape']" semanticCandidatesExpression="feature:eAllContents" domainClass="adaptorinterface::ShaclShape" dropDescriptions="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.RelateShaclPropertyToShaclShape']" childrenPresentation="List">
+            <subNodeMappings name="Specification.DomainSpecification.ShaclShape.LiteralShaclProperty" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DeleteShaclShapeLiteralPropertySubNode']" semanticCandidatesExpression="[self.shaclProperties->select(p : ShaclProperty| (not Sequence{ResourcePropertyValueType::Resource, ResourcePropertyValueType::LocalResource}->includes(p.dataType))._or((Sequence{ResourcePropertyValueType::Resource, ResourcePropertyValueType::LocalResource}->includes(p.dataType))._and(p.class->size() = 0)))/]" domainClass="adaptorinterface.ShaclProperty">
+              <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="[(if (self.eContainer(DomainSpecification) = view.eContainer().oclAsType(DNodeList).target.oclAsType(ShaclShape).eContainer(DomainSpecification)) then '' else self.eContainer(DomainSpecification).namespacePrefix.name  + ':' endif) + name + ': ' + dataType + (if ((oclAsType(ShaclProperty).maxCount &lt; 0)._or(oclAsType(ShaclProperty).maxCount > 1) ) then ' []' else '' endif)/]" labelAlignment="LEFT" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="Specification.DomainSpecification.ShaclShape.ReferenceShaclProperty" semanticCandidatesExpression="[self.shaclProperties->collect(oclAsType(ShaclProperty))->select(p : ShaclProperty | Sequence{ResourcePropertyValueType::Resource, ResourcePropertyValueType::LocalResource}->includes(p.dataType))->select(p : ShaclProperty | (diagram.containers->select(c : DDiagramElementContainer | (c.actualMapping.name = 'Specification.DomainSpecification.ShaclShape')._and(c.visible))).target->includesAll(p.class)._not())/]" domainClass="adaptorinterface::ShaclProperty">
+              <style xsi:type="style:SquareDescription" labelSize="19" showIcon="false" labelExpression="jhjhjhgjhgj" labelAlignment="LEFT" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_purple']"/>
+                <labelFormat>italic</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="Specification.DomainSpecification.ShaclPropertiesList" deletionDescription="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.DeleteShaclPropertiesList']" semanticCandidatesExpression="[self/]" domainClass="adaptorinterface.DomainSpecification" dropDescriptions="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Specification.MoveShaclProperty']" childrenPresentation="List">
+            <subNodeMappings name="Specification.DomainSpecification.ShaclPropertiesList.ShaclProperty" semanticCandidatesExpression="feature:eAllContents" domainClass="adaptorinterface::ShaclProperty">
+              <conditionnalStyles predicateExpression="[not Sequence{ResourcePropertyValueType::Resource, ResourcePropertyValueType::LocalResource}->includes(self.dataType)/]">
+                <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="[name + ': ' + dataType/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="[Sequence{ResourcePropertyValueType::Resource}->includes(self.dataType)/]">
+                <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="[name + ': ' + if (class->size() = 0) then 'ShaclShape' else class->first().name + (if (class->size() > 1) then '++' else '' endif) endif/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="[Sequence{ResourcePropertyValueType::LocalResource}->includes(self.dataType)/]">
+                <style xsi:type="style:BundledImageDescription" showIcon="false" labelExpression="[name + ': ' + if (class->size() = 0) then 'ShaclShape' else class->first().name + (if (class->size() > 1) then '++' else '' endif) endif/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="Shacl Properties">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelSize="9" labelExpression="[self.name + ' (' + self.namespacePrefix.name + ')'/]" iconPath="/org.eclipse.lyo.tools.toolchain.design/images/IconAdaptor.png" widthComputationExpression="40" heightComputationExpression="30">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Create Shacl Shapes">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Specification.CreateDomainSpecification.Shacl" label="Domain Specification" containerMappings="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']" iconPath="/org.eclipse.lyo.tools.toolchain.design/images/IconAdaptor.png">
+            <variable name="container">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="specs" computationExpression="[if (container.eClass().name = 'Toolchain') then container.eGet('specification') else self endif/]"/>
+            </variable>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[specs.oclAsType(Specification)/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="adaptorinterface.NamespacePrefix" referenceName="domainPrefixes" variableName="newNamespacePrefix">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['nsp' + specs.domainPrefixes->size() /]"/>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="adaptorinterface.DomainSpecification" referenceName="domainSpecifications">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['Domain' + specs.domainSpecifications->size() /]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="namespaceURI" valueExpression="['http://your.organisation.domain/'+ newNamespacePrefix.name +'#'/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="namespacePrefix" valueExpression="[newNamespacePrefix /]"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="ShaclShape" label="Shacl Shape" containerMappings="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclShape']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="adaptorinterface::ShaclShape" referenceName="shaclShapes">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ShaclShape' + container.shaclShapes->size()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Specification.CreateLiteralShaclProperty" label="Literal Shacl Property" nodeMappings="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclPropertiesList']/@subNodeMappings[name='Specification.DomainSpecification.ShaclPropertiesList.ShaclProperty']" iconPath="/org.eclipse.lyo.tools.toolchain.design/images/literalProperty_icon.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="adaptorinterface.ShaclProperty" referenceName="shaclProperties">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['ShaclProperty' + container.shaclProperties->size()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="dataType" valueExpression="[ResourcePropertyValueType::String /]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Specification.CreateReferenceShaclProperty" label="Reference Shacl Property" nodeMappings="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclPropertiesList']/@subNodeMappings[name='Specification.DomainSpecification.ShaclPropertiesList.ShaclProperty']" iconPath="/org.eclipse.lyo.tools.toolchain.design/images/referenceProperty_icon.png">
+            <variable name="container">
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="propertyRange" candidatesExpression="[container.oclAsType(DomainSpecification).eContainer(Specification).domainSpecifications.shaclShapes/]" message="Select range of the reference shacl property"/>
+            </variable>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="adaptorinterface::ShaclProperty" referenceName="shaclProperties">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="dataType" valueExpression="[ResourcePropertyValueType::Resource /]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['relatesTo' + propertyRange.name.toUpperFirst()/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="class" valueExpression="[propertyRange/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Specification.CreateLocalReferenceShaclProperty" label="Local Reference Shacl Property" nodeMappings="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclPropertiesList']/@subNodeMappings[name='Specification.DomainSpecification.ShaclPropertiesList.ShaclProperty']" iconPath="/org.eclipse.lyo.tools.toolchain.design/images/localReferenceProperty_icon.png">
+            <variable name="container">
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="propertyRange" candidatesExpression="[container.oclAsType(DomainSpecification).eContainer(Specification).domainSpecifications.shaclShapes/]" message="Select range of the reference shacl property"/>
+            </variable>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="adaptorinterface::ShaclProperty" referenceName="shaclProperties">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="dataType" valueExpression="[ResourcePropertyValueType::LocalResource /]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="class" valueExpression="[propertyRange/]"/>
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="['relatesTo' + instance.class.name.toUpperFirst()/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Shacl Operations">
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="Specification.DropDomainSpecification.Shacl" mappings="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                <subModelOperations xsi:type="tool:CreateView" mapping="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='SpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification']" containerViewExpression="var:newContainerView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="Specification.MoveShaclProperty" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="shaclProperties" valueExpression="[element /]"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="Specification.RelateShaclPropertyToShaclShape" mappings="//@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclPropertiesList']/@subNodeMappings[name='Specification.DomainSpecification.ShaclPropertiesList.ShaclProperty'] //@ownedViewpoints[name='ToolchainViewpoint']/@ownedRepresentations[name='ShaclSpecificationDiagram']/@defaultLayer/@containerMappings[name='Specification.DomainSpecification.Shacl']/@subContainerMappings[name='Specification.DomainSpecification.ShaclShape']/@subNodeMappings[name='Specification.DomainSpecification.ShaclShape.LiteralShaclProperty']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="shaclProperties" valueExpression="[element/]"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="Specification.MoveShaclShape" dragSource="BOTH">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="shaclShapes" valueExpression="[element /]"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Specification.DeleteShaclShape">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:RemoveElement"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Specification.DeleteShaclPropertiesList" precondition="false">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Specification.DeleteShaclShapeToLiteralProperty">
+            <element name="element"/>
+            <elementView name="elementView">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="aShaclProperty" computationExpression="[elementView.oclAsType(DEdge).targetNode.oclAsType(DNode).target/]"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="aShaclShape" computationExpression="[element/]"/>
+            </elementView>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Unset" featureName="shaclProperties" elementExpression="[aShaclProperty/]"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Specificatio.DeleteShaclShapeToReferenceShaclProperty">
+            <element name="element"/>
+            <elementView name="elementView">
+              <subVariables xsi:type="tool_1:SelectModelElementVariable" name="aShaclProperty" candidatesExpression="[elementView.oclAsType(DEdge).semanticElements/]" message="Select the ShaclProperty to delete"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="aShaclShape" computationExpression="[element/]"/>
+            </elementView>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Unset" featureName="shaclProperties" elementExpression="[aShaclProperty/]"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Specification.DeleteShaclShapeLiteralPropertySubNode">
+            <element name="element"/>
+            <elementView name="elementView">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="aShaclProperty" computationExpression="[element/]"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="aShaclShape" computationExpression="[elementView.eContainer().oclAsType(DNodeList).target.oclAsType(ShaclShape)/]"/>
+            </elementView>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[aShaclShape/]">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="shaclProperties" elementExpression="[aShaclProperty/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Specification.DeleteShaclShapeReferenceShaclPropertySubNode">
+            <element name="element"/>
+            <elementView name="elementView">
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="aShaclProperty" computationExpression="[element/]"/>
+              <subVariables xsi:type="tool_1:AcceleoVariable" name="aShaclShape" computationExpression="[elementView.eContainer().oclAsType(DNodeList).target.oclAsType(ShaclShape)/]"/>
+            </elementView>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[aShaclShape/]">
+                <subModelOperations xsi:type="tool_1:Unset" featureName="shaclProperties" elementExpression="[aShaclProperty/]"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org::eclipse::lyo::tools::toolchain::design::queries"/>
     <ownedJavaExtensions qualifiedClassName="org::eclipse::lyo::tools::toolchain::design::DialogInputServices"/>
